@@ -1,4 +1,4 @@
-#include "engine.h"
+#include "system/engine.h"
 #include <time.h>
 
 // 静态变量用于记录上次更新时间
@@ -34,3 +34,4 @@ int AllGame::ChangeDifWitchTime() {
     // 返回更新后的难度值
     return dif;
 }
+
