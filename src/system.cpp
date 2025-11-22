@@ -28,3 +28,4 @@ template<typename T>
 void AllKindDestroy(T* obj) {
 	delete obj;
 }
+
