@@ -4,15 +4,18 @@ project(airplane_wars)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# ==== 关键：把项目根目录加入 include 搜索路径 ====
+# 让 include "arch/xxx.h" 生效
 include_directories(${CMAKE_SOURCE_DIR})
 
-# ==== 收集所有 cpp ====
+# 只编译 src/ 下的 .cpp，不要碰 arch/
 file(GLOB_RECURSE SOURCES
-        ${CMAKE_SOURCE_DIR}/arch/*.cpp
         ${CMAKE_SOURCE_DIR}/src/*.cpp
 )
 
 add_executable(airplane_wars
         ${SOURCES}
+        src/behavior/EnemyBehavior.cpp
+        src/behavior/BulletBehavior.cpp
+        src/behavior/PlayerBehavior.cpp
+        src/behavior/PropBehavior.cpp
 )
