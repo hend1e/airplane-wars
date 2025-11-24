@@ -1,8 +1,11 @@
 // Player.h
+#pragma message("PLANE.H INCLUDED FROM: " __FILE__)
+#pragma message("PLAYER.H INCLUDED FROM: " __FILE__)
+
 #ifndef AIRPLANE_WARS_PLAYER_H
 #define AIRPLANE_WARS_PLAYER_H
 
-#include "plane.h"
+#include "arch/core/plane.h"
 
 class Player : public plane {
 public:

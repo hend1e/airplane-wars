@@ -1,10 +1,14 @@
-#include "manager/BulletManager.h"
-#include "system/system.h"
-#include "Enemy.h"
-#include "core/bullet.h"
-#include "Player.h"
-#include"behavior/BulletBehavior.h"
-#include"behavior/PlaneBehavior.h"
+#include "arch/behavior/PlaneBehavior.h"
+
+#include "arch/behavior/BulletBehavior.h"
+
+#include "arch/manager/BulletManager.h"
+#include "arch/system/system.h"
+
+#include "arch/core/bullet.h"
+#include "arch/core/Enemy.h"
+#include "arch/core/Player.h"
+
 void BulletManager::AddBullet(bullet* b) {
 	bullets.push_back(b);
 }

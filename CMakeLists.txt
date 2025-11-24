@@ -1,36 +1,18 @@
 cmake_minimum_required(VERSION 3.31)
-project(airplane_wars CXX)
+project(airplane_wars)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(arch)
-include_directories(arch/behavior)
-include_directories(arch/core)
-include_directories(arch/system)
-include_directories(arch/manager)
-include_directories(src)
+# ==== 关键：把项目根目录加入 include 搜索路径 ====
+include_directories(${CMAKE_SOURCE_DIR})
+
+# ==== 收集所有 cpp ====
+file(GLOB_RECURSE SOURCES
+        ${CMAKE_SOURCE_DIR}/arch/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/*.cpp
+)
 
 add_executable(airplane_wars
-        arch/system/engine.h
-        arch/core/Player.h
-        arch/system/system.h
-        arch/system/view.h
-        arch/core/plane.h
-        arch/core/Enemy.h
-        arch/core/bullet.h
-        arch/core/prop.h
-        arch/manager/PlayerManager.h
-        arch/manager/EnemyManager.h
-        arch/manager/BulletManager.h
-        arch/manager/PropManager.h
-        arch/manager/GameManager.h
-        arch/behavior/BulletBehavior.h
-        arch/behavior/EnemyBehavior.h
-        arch/behavior/PlayerBehavior.h
-        arch/behavior/PropBehavior.h
-        src/manager/BulletManager.cpp
-        arch/behavior/PlaneBehavior.h
-        src/Behavior/PlaneBehavior.cpp
-        src/manager/PropManager.cpp
-
+        ${SOURCES}
 )

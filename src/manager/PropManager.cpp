@@ -1,9 +1,10 @@
-#include "manager/PropManager.h"
-#include"Behavior/PropBehavior.h"
-#include "system/engine.h"
+#include "arch/manager/PropManager.h"
+#include"arch/behavior/PropBehavior.h"
+#include "arch/system/engine.h"
 #include <random>
+#include"arch/system/system.h"
 
-#include "Player.h"
+#include "arch/core/Player.h"
 
 void PropManager::Produce() {
 	prop* p = new prop;

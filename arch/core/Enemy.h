@@ -1,7 +1,7 @@
 #ifndef AIRPLANE_WARS_ENEMY_H
 #define AIRPLANE_WARS_ENEMY_H
 #include <utility>
-#include "plane.h"
+#include "arch/core/plane.h"
 using std::pair;
 
 class bullet;

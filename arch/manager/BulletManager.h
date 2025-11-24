@@ -2,8 +2,8 @@
 #define AIRPLANE_WARS_BULLET_MANAGER_H
 
 #include <vector>
-#include "../core/bullet.h"
-
+#include "arch/core/bullet.h"
+#include"arch/behavior/PlaneBehavior.h"
 class BulletManager {
 public:
 	std::vector<bullet*> bullets;

@@ -1,6 +1,6 @@
 #ifndef AIRPLANE_WARS_BULLETBEHAVIOR_H
 #define AIRPLANE_WARS_BULLETBEHAVIOR_H
-#include "core/bullet.h"
+#include "arch/core/bullet.h"
 //随机出外观
 int AppMatchEnemyType(bullet* b);
 

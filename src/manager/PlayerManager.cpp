@@ -1,8 +1,8 @@
-#include "manager/PlayerManager.h"
-#include "system/engine.h"
-#include "behavior/PlayerBehavior.h"
-#include"system/view.h"
-#include"system/system.h"
+#include "arch/manager/PlayerManager.h"
+#include "arch/system/engine.h"
+#include "arch/behavior/PlayerBehavior.h"
+#include"arch/system/view.h"
+#include"arch/system/system.h"
 PlayerManager::PlayerManager() {}
 void PlayerManager::Produce() {
 	Player*player=new Player();

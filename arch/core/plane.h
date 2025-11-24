@@ -1,4 +1,5 @@
 // plane.h
+#pragma message("PLANE.H INCLUDED FROM: " __FILE__)
 #ifndef AIRPLANE_WARS_PLANE_H
 #define AIRPLANE_WARS_PLANE_H
 

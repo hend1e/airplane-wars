@@ -1,6 +1,6 @@
 #ifndef AIRPLANE_WARS_PLAYERBEHAVIOR_H
 #define AIRPLANE_WARS_PLAYERBEHAVIOR_H
-#include "core/Player.h"
+#include "arch/core/Player.h"
 //从easyx中读移动坐标
 std::pair<int,int>CalcuPlayerMove(Player* p);
 

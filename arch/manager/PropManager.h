@@ -2,7 +2,7 @@
 #define AIRPLANE_WARS_PROP_MANAGER_H
 
 #include <vector>
-#include "../core/prop.h"
+#include "arch/core/prop.h"
 class PropManager {
 public:
 	std::vector<prop*> props;

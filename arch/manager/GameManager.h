@@ -1,11 +1,12 @@
 #ifndef AIRPLANE_WARS_GAME_MANAGER_H
 #define AIRPLANE_WARS_GAME_MANAGER_H
 
-#include "PlayerManager.h"
-#include "EnemyManager.h"
-#include "BulletManager.h"
-#include "PropManager.h"
-#include "../system/engine.h"
+#include "arch/behavior/PlayerBehavior.h"
+#include "arch/manager/EnemyManager.h"
+#include "arch/manager/BulletManager.h"
+#include "arch/manager/PropManager.h"
+#include "arch/manager/PlayerManager.h"
+#include "arch/system/engine.h"
 
 class GameManager {
 public:

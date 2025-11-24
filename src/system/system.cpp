@@ -1,7 +1,7 @@
 
 #include <utility>
-#include "system/system.h"
-#include "system/engine.h"
+#include "arch/system/system.h"
+#include "arch/system/engine.h"
 using std::pair;
 
 //根据当前坐标和vx vy 算出一帧后的坐标
@@ -21,12 +21,6 @@ bool IsCrash(pair<int,int>NowCoordA,int R1,pair<int,int>NowCoordB,int R2) {
 //出界检查
 bool IsOutRange(pair<int,int>NowCoord) {
 	return NowCoord.first<0||NowCoord.first>AllGame::instance().ScreenX||NowCoord.second<0||NowCoord.second>AllGame::instance().ScreenY;
-}
-
-//判断是否应该销毁 销毁
-template<typename T>
-void AllKindDestroy(T* obj) {
-	delete obj;
 }
 
 //敌我识别函数

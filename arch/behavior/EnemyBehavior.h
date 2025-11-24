@@ -1,6 +1,6 @@
 #ifndef AIRPLANE_WARS_ENEMYBEHAVIOR_H
 #define AIRPLANE_WARS_ENEMYBEHAVIOR_H
-#include "core/Enemy.h"
+#include "arch/core/Enemy.h"
 //上1/4屏幕随机位置生成敌人
 std::pair<int,int>RandomLocationProduce(Enemy*e);
 

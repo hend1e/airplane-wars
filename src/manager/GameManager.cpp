@@ -1,4 +1,4 @@
-#include "manager/GameManager.h"
+#include "arch/manager/GameManager.h"
 void GameManager::Update() {
 	propMgr.Update(playerMgr.players[0]);
 	bulletMgr.Update(playerMgr.players,enemyMgr.enemies);

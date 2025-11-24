@@ -2,8 +2,8 @@
 #define AIRPLANE_WARS_ENEMY_MANAGER_H
 
 #include <vector>
-#include "../core/Enemy.h"
-#include "../system/system.h"
+#include "arch/core/Enemy.h"
+#include "arch/system/system.h"
 
 class EnemyManager {
 public:

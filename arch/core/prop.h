@@ -1,7 +1,7 @@
 #ifndef AIRPLANE_WARS_PROP_H
 #define AIRPLANE_WARS_PROP_H
 #include <utility>
-#include "system.h"
+#include "arch/system/system.h"
 using std::pair;
 
 class bullet;

@@ -1,8 +1,8 @@
-#include "EnemyManager.h"
+#include "arch/manager/EnemyManager.h"
 #include<vector>
 #include <algorithm>
-#include "behavior/EnemyBehavior.h"
-#include "core/Enemy.h"
+#include "arch/behavior/EnemyBehavior.h"
+#include "arch/core/Enemy.h"
 EnemyManager::EnemyManager() {}
 void EnemyManager::Produce() {
 	Enemy* e=new Enemy();
