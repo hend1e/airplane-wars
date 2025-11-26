@@ -1,8 +1,6 @@
 #include "behavior-PlayerBehavior.h"
 #include "system-engine.h"
-std::pair<int, int>CalcuPlayerMove(Player* p) {
 
-}
 std::pair<int, int>ProducePlayer(Player* p) {
 	int screenX = AllGame::instance().ScreenX;
 	int screenY = AllGame::instance().ScreenY;

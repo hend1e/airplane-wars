@@ -14,6 +14,7 @@ std::pair<int, int> InitVyAndVy(bullet* b) {
 	return std::make_pair(0, 200 / 120);
 }
 std::pair<int, int> CalcuBulletMove(pair<int, int>v, bullet* b) {
-	auto [vx, vy] = InitVyAndVy(b);
+	int vx = InitVyAndVy(b).first;
+	int vy = InitVyAndVy(b).second;
 	return SystemMove(b->NowCoord, vx, vy);
 }

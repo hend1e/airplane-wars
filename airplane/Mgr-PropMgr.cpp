@@ -40,7 +40,8 @@ void PropManager::Update(Player* player) {
 			return false;
 		}), props.end());
 	for (prop* pp : props) {
-		auto [vx, vy] = RandonMove(pp);
+		int vx = RandonMove(pp).first;
+		int vy = RandonMove(pp).second;
 		pp->NowCoord = SystemMove(pp->NowCoord, vx, vy);
 	}
 	for (prop* p : props) {
