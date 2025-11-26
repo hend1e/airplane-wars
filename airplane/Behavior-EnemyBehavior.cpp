@@ -8,6 +8,7 @@
 static std::random_device rd;
 static std::mt19937 gen(rd());
 const int ScreenX = AllGame::instance().ScreenX;
+const int ScreenY = AllGame::instance().ScreenY;
 // 每个敌机独立的风筝方向
 static std::unordered_map<Enemy*, int> fengzhengDir;
 
@@ -15,6 +16,104 @@ static std::unordered_map<Enemy*, int> fengzhengDir;
 static std::unordered_map<Enemy*, float> jinCurrentVx;
 static std::unordered_map<Enemy*, float> jinTargetVx;
 
+// 生成 1/4 区域内的随机坐标
+std::pair<int, int> RandomLocationProduce(Enemy* e) {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+
+    // 根据 type 匹配 rad（碰撞圆半径）
+    switch (e->type) {
+    case 0: e->rad = 45 / 2; break;
+    case 1: e->rad = 60 / 2; break;
+    case 2: e->rad = 70 / 2; break;
+    }
+
+    // X 轴随机范围 [e->rad, ScreenX - e->rad]
+    std::uniform_int_distribution<int> disX(e->rad, ScreenX - e->rad);
+    e->coord.first = disX(gen);
+
+    // Y 轴随机范围 [e->rad, ScreenY/4 - e->rad]（上方 1/4 区域）
+    int topQuarterHeight = ScreenY / 4;
+    std::uniform_int_distribution<int> disY(e->rad, topQuarterHeight - e->rad);
+    e->coord.second = disY(gen);
+
+    return e->coord;
+}
+
+// 计算系数
+int CalculateCoef(Enemy* e) {
+    return e->type + 1;
+}
+
+// 随机生成 modol (0: 小型 1: 中型 2: 大型)
+int RandomModol(Enemy* e) {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(0, 2);
+
+    e->modol = dis(gen);
+    return e->modol;
+}
+
+// 随机类型（随时间调整权重）
+int RandomType(Enemy* e) {
+    int gameTime = AllGame::instance().GameTime;
+    int minute = gameTime / 60;
+
+    std::vector<int> weights;
+
+    if (minute < 1) {
+        weights = { 70, 25, 5 };
+    }
+    else if (minute < 3) {
+        weights = { 20, 30, 40 };
+    }
+    else if (minute < 5) {
+        weights = { 0, 40, 40 };
+    }
+    else {
+        weights = { 0, 10, 90 };
+    }
+
+    int total = weights[0] + weights[1] + weights[2];
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(1, total);
+    int r = dis(gen);
+
+    if (r <= weights[0]) {
+        e->type = 0;
+        return 0;
+    }
+    else if (r <= weights[0] + weights[1]) {
+        e->type = 1;
+        return 1;
+    }
+    else {
+        e->type = 2;
+        return 2;
+    }
+}
+
+// 根据 Type 匹配半径
+int RadMatchType(Enemy* e) {
+    switch (e->type) {
+    case 0: e->rad = 22; return 22;
+    case 1: e->rad = 30; return 30;
+    case 2: e->rad = 35; return 35;
+    }
+    return 0;
+}
+
+// 根据 Type 匹配最大 HP
+int MaxHpMatchType(Enemy* e) {
+    switch (e->type) {
+    case 0: e->maxHp = 20; return 20;
+    case 1: e->maxHp = 45; return 45;
+    case 2: e->maxHp = 135; return 135;
+    }
+    return 0;
+}
 
 // ==========================================================
 // 0：风筝（独立 dir）

@@ -5,12 +5,14 @@
 #include<unordered_map>
 static std::random_device rd;
 static std::mt19937 gen(rd());
+
 int RandomType(prop* p) {
 	int x = 3;
 	std::uniform_int_distribution<int> dis(0, x - 1);
 	int ans = dis(gen);
 	return ans;
 }
+
 std::pair<int, int>RandomProduceCoord(prop* p) {
 	int screenX = AllGame::instance().ScreenX;
 	int screenY = AllGame::instance().ScreenY;
@@ -30,7 +32,8 @@ std::pair<int, int>RandomProduceCoord(prop* p) {
 
 
 }
-std::pair<int, int>RandomMove(prop* p) {
+
+std::pair<int, int>RandonMove(prop* p) {
 	static std::unordered_map<prop*, float> curVx;
 	static std::unordered_map<prop*, float> tgtVx;
 

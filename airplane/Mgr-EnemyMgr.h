@@ -12,7 +12,7 @@ public:
 
 	std::vector<Enemy*> enemies;
 	void Produce();
-	void Update();
+	void Update(Player*p);
 	void Render();
 	void GC();
 };

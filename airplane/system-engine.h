@@ -9,12 +9,14 @@ public:
 	int dif = 0;//玩家选择难度(随游戏时间自动增加)
 	int map = 0;//哪张地图
 	int vo = 0;//音量
+	int se = 0;//音效
 	int skin = 0;//皮肤
 	int AllKill = 0;//杀了多少敌机
 	int GameTime = 0;//游戏时间
 	int Score = 0;//得分
 	int ScreenX = 1920, ScreenY = 1080;
 	int frameCount = 0;
+	bool Stop = false;
 
 	static AllGame& instance() {
 		static AllGame obj;

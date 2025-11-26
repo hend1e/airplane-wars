@@ -5,7 +5,7 @@
 #include <utility>
 #include"core-Player.h"
 //从easyx中读移动坐标
-std::pair<int, int>CalcuPlayerMove(Player* p);
+std::pair<int, int>GetPlayerCoord(Player* p);
 
 //玩家生成位置
 std::pair<int, int>ProducePlayer(Player* p);

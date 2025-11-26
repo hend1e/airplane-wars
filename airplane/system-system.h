@@ -2,7 +2,8 @@
 #ifndef AIRPLANE_WARS_SYSTEM_H
 #define AIRPLANE_WARS_SYSTEM_H
 
-
+#include<time.h>
+#include<Windows.h>
 #include <utility>
 using std::pair;
 
@@ -19,5 +20,5 @@ void AllKindDestroy(T* obj) {
 	if (!obj) return;
 	delete obj;
 }
-
+void lock120fps();
 #endif //AIRPLANE_WARS_SYSTEM_H

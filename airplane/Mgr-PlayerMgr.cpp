@@ -12,8 +12,8 @@ void PlayerManager::Produce() {
 }
 void PlayerManager::Update() {
 	for (auto& player : players) {
-		if (player->NowHp <= 0) { AllKindDestroy(player); GameOverView(); }
-		player->coord = CalcuPlayerMove(player);
+		if (player->NowHp <= 0) { AllKindDestroy(player); }
+		player->coord = GetPlayerCoord(player);
 	}
 }
 void PlayerManager::Render() {

@@ -2,6 +2,8 @@
 #include <utility>
 #include "system-system.h"
 #include "system-engine.h"
+#include <chrono>
+#include <windows.h>
 using std::pair;
 
 //根据当前坐标和vx vy 算出一帧后的坐标
@@ -27,5 +29,24 @@ bool IsOutRange(pair<int, int>NowCoord) {
 bool IsSameCamp(int A, int B) {
 	return A == B;
 }
+void lock120fps()
+{
+    static auto last = std::chrono::high_resolution_clock::now(); // 上一帧结束时间
+
+    auto now = std::chrono::high_resolution_clock::now();         // 当前帧结束时间
+
+    double delta = std::chrono::duration<double>(now - last).count(); // 本帧耗时
+
+    const double target = 1.0 / 120.0;  // 每帧目标耗时
+
+    if (delta < target)
+    {
+        double sleepTime = target - delta;
+        Sleep((DWORD)(sleepTime * 1000));
+    }
+
+    last = std::chrono::high_resolution_clock::now(); // 更新“上一帧结束时间”
+}
+
 
 

@@ -15,7 +15,7 @@ void EnemyManager::Produce() {
 	enemies.push_back(e);
 }
 
-void EnemyManager::Update() {
+void EnemyManager::Update(Player*p) {
 	enemies.erase(
 		std::remove_if(enemies.begin(), enemies.end(),
 			[](Enemy* e) {
@@ -27,7 +27,7 @@ void EnemyManager::Update() {
 			}), enemies.end()
 				);
 	for (auto& ee : enemies) {
-		ee->coord = CalculateEnemy(ee);
+		ee->coord = CalculateEnemy(ee,p);
 	}
 }
 void EnemyManager::Render() {

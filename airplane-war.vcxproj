@@ -131,6 +131,7 @@
     <ClCompile Include="airplane\Mgr-PropMgr.cpp" />
     <ClCompile Include="airplane\system-engine.cpp" />
     <ClCompile Include="airplane\system-system.cpp" />
+    <ClCompile Include="airplane\system-view.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="airplane\Behavior-BulletBehavior.h" />

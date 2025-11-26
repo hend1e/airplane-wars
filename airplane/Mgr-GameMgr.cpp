@@ -3,7 +3,7 @@ void GameManager::Update() {
 	propMgr.Update(playerMgr.players[0]);
 	bulletMgr.Update(playerMgr.players, enemyMgr.enemies);
 	playerMgr.Update();
-	enemyMgr.Update();
+	enemyMgr.Update(playerMgr.players[0]);
 }
 void GameManager::Render() {
 	propMgr.Render();

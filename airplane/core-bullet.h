@@ -25,8 +25,6 @@ public:
 	const int ATK = 10;
 	int camp;//所有玩家的标为0 敌人的标为1
 	bool alive;
-
-	bullet();//initCoord--planeCoord ATK--planeAtk Myself--planeKind
 };
 
 #endif //AIRPLANE_WARS_BULLET_H

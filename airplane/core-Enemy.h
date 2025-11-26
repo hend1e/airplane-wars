@@ -18,8 +18,5 @@ public:
 	int vx;
 	int vy;
 
-	void OnHit(bool damage);     // 播放受击效果
-	void OnDestroy(int NowHp);   // 播放死亡动画
-
 };
 #endif //AIRPLANE_WARS_ENEMY_H

@@ -26,6 +26,6 @@ std::pair<int, int> Behavior_JianMie(Enemy* e, Player* p);
 std::pair<int, int> Behavior_JinJun(Enemy* e);
 
 //µ÷ÓÃSystemMove
-std::pair<int, int> CalculateEnemy(Enemy* e);
+std::pair<int, int> CalculateEnemy(Enemy* e, Player* p);
 
 #endif //AIRPLANE_WARS_ENEMYBEHAVIOR_H
