@@ -4,6 +4,7 @@
 #define AIRPLANE_WARS_ARCH_VIEW_H
 #include"easyx.h"
 #include"graphics.h"
+void drawAlpha(int  picture_x, int picture_y, IMAGE* picture);
 void SettingsView();
 
 void PrintTeamIntroduction();
@@ -12,13 +13,13 @@ void Instructions();
 
 
 
-int ChoosePlane();/*¸Ãº¯Êı·µ»ØÖµ¾ö¶¨ Æ¤·ô MaxHp ÉäËÙµÈPlayerµÄĞÔÖÊ
-					ÊµÏÖÕ½»úÑ¡Ôñ ÊıÖµºÍÁ¢»æÕ¹Ê¾ ÒÔ¼°Õ½»úÑ¡Ôñ
-					-----¼´Õ½±¸½çÃæ------*/
+int ChoosePlane();/*è¯¥å‡½æ•°è¿”å›å€¼å†³å®š çš®è‚¤ MaxHp å°„é€Ÿç­‰Playerçš„æ€§è´¨
+					å®ç°æˆ˜æœºé€‰æ‹© æ•°å€¼å’Œç«‹ç»˜å±•ç¤º ä»¥åŠæˆ˜æœºé€‰æ‹©
+					-----å³æˆ˜å¤‡ç•Œé¢------*/
 
-void PrintGameScene();//ÔØÈëÕ½»úÍ¼Æ¬ bgm ºÍ·É»úµÄÊıÖµ
+void PrintGameScene();//è½½å…¥æˆ˜æœºå›¾ç‰‡ bgm å’Œé£æœºçš„æ•°å€¼
 
-void GameOverView();//Õ¹Ê¾µÃ·Ö
+void GameOverView();//å±•ç¤ºå¾—åˆ†
 void MenuView();
 void GameView();
 
