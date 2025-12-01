@@ -4,7 +4,7 @@
 
 #include "Mgr-BulletMgr.h"
 #include "system-system.h"
-
+#include"system-view.h"
 #include "core-bullet.h"
 #include "core-Enemy.h"
 #include "core-Player.h"
@@ -12,19 +12,19 @@ BulletManager::BulletManager() {
 	LoadResources();
 }
 void BulletManager::LoadResources() {
-	bulletImgs.resize(11);   // 10ÖÖ×Óµ¯Í¼Æ¬
+	bulletImgs.resize(11);   // 10ç§å­å¼¹å›¾ç‰‡
 
-	loadimage(&bulletImgs[0], "");
-	loadimage(&bulletImgs[1], "");
-	loadimage(&bulletImgs[2], "");
-	loadimage(&bulletImgs[3], "");
-	loadimage(&bulletImgs[4], "");
-	loadimage(&bulletImgs[5], "");
-	loadimage(&bulletImgs[6], "");
-	loadimage(&bulletImgs[7], "");
-	loadimage(&bulletImgs[8], "");
-	loadimage(&bulletImgs[9], "");
-	loadimage(&bulletImgs[10], "");
+	loadimage(&bulletImgs[0], "image\\bullet\\bullet0.png",bullets[0]->rad, bullets[0]->rad);
+	loadimage(&bulletImgs[1], "image\\bullet\\bullet1.jpg", bullets[1]->rad, bullets[1]->rad);
+	loadimage(&bulletImgs[2], "image\\bullet\\bullet2.jpg", bullets[2]->rad, bullets[2]->rad);
+	loadimage(&bulletImgs[3], "image\\bullet\\bullet3.png", bullets[3]->rad, bullets[3]->rad);
+	loadimage(&bulletImgs[4], "image\\bullet\\bullet4.png", bullets[4]->rad, bullets[4]->rad);
+	loadimage(&bulletImgs[5], "image\\bullet\\bullet5.jpg", bullets[5]->rad,bullets[5]->rad);
+	loadimage(&bulletImgs[6], "image\\bullet\\bullet6.png", bullets[6]->rad, bullets[6]->rad);
+	loadimage(&bulletImgs[7], "image\\bullet\\bullet7.png", bullets[7]->rad, bullets[7]->rad);
+	loadimage(&bulletImgs[8], "image\\bullet\\bullet8.jpg", bullets[8]->rad, bullets[8]->rad);
+	loadimage(&bulletImgs[9], "image\\bullet\\bullet9.jpg", bullets[9]->rad, bullets[9]->rad);
+	loadimage(&bulletImgs[10], "image\\bullet\\bullet10.png", bullets[10]->rad, bullets[10]->rad);
 }
 
 void BulletManager::AddBullet(bullet* b) {
@@ -34,9 +34,9 @@ void BulletManager::Produce(const std::vector<Player*>& p, const std::vector<Ene
 	for (Player* pp : p) {
 		if (ShouldFire(pp)) {
 			bullet* b = new bullet();
-			if (pp->Vshoot != 1)b->app = 9;//Íæ¼Ò--Ö±ÏßansĞ±Ïß×Óµ¯
-			else b->app=10;//Íæ¼Ò--¼¤¹â×Óµ¯
-			b->Type = (RandomInt(0, 99)<=90?0:1);//Íæ¼Ò×Óµ¯ÀàĞÍËæ»ú
+			if (pp->Vshoot != 1)b->app = 9;//ç©å®¶--ç›´çº¿ansæ–œçº¿å­å¼¹
+			else b->app=10;//ç©å®¶--æ¿€å…‰å­å¼¹
+			b->Type = (RandomInt(0, 99)<=90?0:1);//ç©å®¶å­å¼¹ç±»å‹éšæœº
 			switch (b->Type) {
 			case 0: { auto [vx, vy] = LineBullet(b); b->vx = vx; b->vy = vy; break; }
 			case 1: { auto [vx, vy] = BiasBullet(b); b->vx = vx; b->vy = vy; break; }
@@ -76,10 +76,10 @@ void BulletManager::Produce(const std::vector<Player*>& p, const std::vector<Ene
 	}
 }
 void BulletManager::Update(const std::vector<Player*>& p, const std::vector<Enemy*>& es) {
-	//2.Éú³É×Óµ¯
+	//2.ç”Ÿæˆå­å¼¹
 	void Produce(const std::vector<Player*>&p, const std::vector<Enemy*>&es);
 
-	//3. ÒÆ¶¯×Óµ¯
+	//3. ç§»åŠ¨å­å¼¹
 	for (bullet* b : bullets) {		
 		if (IsOutRange(b->NowCoord)) {
 			b->alive = false;
@@ -88,11 +88,11 @@ void BulletManager::Update(const std::vector<Player*>& p, const std::vector<Enem
 		b->NowCoord = CalcuBulletMove(b,p[0]);
 	}
 
-	//4. Åö×²¼ì²â
+	//4. ç¢°æ’æ£€æµ‹
 	for (bullet* b : bullets) {
 		if (b->alive == false) continue;
 		if (b->camp == 0) {
-			// Íæ¼Ò×Óµ¯ ¡ú ´òµĞ»ú
+			// ç©å®¶å­å¼¹ â†’ æ‰“æ•Œæœº
 			for (Enemy* e : es) {
 				if (!IsSameCamp(e->camp, b->camp) && IsCrash(b->NowCoord, b->rad, e->coord, e->rad)) {
 					e->NowHp -= b->ATK;
@@ -101,7 +101,7 @@ void BulletManager::Update(const std::vector<Player*>& p, const std::vector<Enem
 			}
 		}
 		else {
-			// µĞ»ú×Óµ¯ ¡ú ´òÍæ¼Ò
+			// æ•Œæœºå­å¼¹ â†’ æ‰“ç©å®¶
 			for (Player* pp : p) {
 				if (!IsSameCamp(pp->camp, b->camp) && IsCrash(b->NowCoord, b->rad, pp->coord, pp->rad)) {
 					pp->NowHp -= b->ATK;
@@ -114,7 +114,44 @@ void BulletManager::Update(const std::vector<Player*>& p, const std::vector<Enem
 
 }
 void BulletManager::Render() {
+	for (bullet* b : bullets) {
+		switch (b->app) {
+		case 0:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[0]);
+			break;
+		case 1:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[1]);
+			break;
+		case 2:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[2]);
+			break;
+		case 3:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[3]);
+			break;
+		case 4:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[4]);
+			break;
+		case 5:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[5]);
+			break;
+		case 6:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[6]);
+			break;
+		case 7:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[7]);
+			break;
+		case 8:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[8]);
+			break;
+		case 9:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[9]);
+			break;
+		case 10:
+			drawAlpha((int)b->NowCoord.first - b->rad / 2, (int)b->NowCoord.first - b->rad / 2, &bulletImgs[10]);
+			break;
+		}
 
+	}
 }
 void BulletManager::GC() {
 	//easyx
