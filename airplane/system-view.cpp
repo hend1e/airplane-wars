@@ -4,6 +4,7 @@
 #include"system-engine.h"
 #include"Mgr-GameMgr.h"
 #include"system-system.h"
+#include<tchar.h>
 int WAITING = 100;//等待尺寸数值
 int oper = 0;
 void drawAlpha(int  picture_x, int picture_y, IMAGE* picture) //x为载入图片的X坐标，y为Y坐标
@@ -57,8 +58,7 @@ void MenuView() {
 	//设置标题
 	settextstyle(80, 0, _T("黑体"));//字体不一定是黑体
 	settextcolor(BLACK);//不一定是黑色
-	outtextxy(625, 60, _T("\nWAR LIGHTING"));
-	//设置选项
+	outtextxy(625, 60, _T("WARLIGHTING"));
 	outtextxy(50, 0, _T("开始游戏"));
 	setfillcolor(0x000000);//颜色待定
 	fillrectangle(830, 280, 1090, 360);//位置待定
@@ -98,7 +98,6 @@ void MenuView() {
 					settextstyle(80, 0, _T("黑体"));//字体不一定是黑体
 					settextcolor(BLACK);//不一定是黑色
 					outtextxy(625, 60, _T("\nWAR LIGHTING"));
-					//设置选项
 					outtextxy(50, 0, _T("开始游戏"));
 					setfillcolor(0x000000);//颜色待定
 					fillrectangle(830, 280, 1090, 360);//位置待定

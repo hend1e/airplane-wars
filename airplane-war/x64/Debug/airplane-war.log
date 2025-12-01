@@ -1,0 +1,32 @@
+﻿  Mgr-BulletMgr.cpp
+D:\Project\demo1\airplane\Mgr-BulletMgr.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Project\demo1\airplane\system-view.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“airplane/Mgr-BulletMgr.cpp”)
+  
+  Mgr-EnemyMgr.cpp
+D:\Project\demo1\airplane\Mgr-EnemyMgr.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Project\demo1\airplane\system-view.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“airplane/Mgr-EnemyMgr.cpp”)
+  
+  Mgr-PlayerMgr.cpp
+D:\Project\demo1\airplane\system-view.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“airplane/Mgr-PlayerMgr.cpp”)
+  
+  Mgr-PropMgr.cpp
+D:\Project\demo1\airplane\system-view.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“airplane/Mgr-PropMgr.cpp”)
+  
+  system-view.cpp
+D:\Project\demo1\airplane\system-view.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Project\demo1\airplane\system-view.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  (编译源文件“airplane/system-view.cpp”)
+  
+D:\Project\demo1\airplane\system-view.cpp(74,22): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(101,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(113,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(130,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(142,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(159,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(171,1): error C2001: 常量中有换行符
+D:\Project\demo1\airplane\system-view.cpp(74,1): error C1057: 宏扩展中遇到意外的文件结束
+  正在生成代码...
