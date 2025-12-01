@@ -4,23 +4,23 @@
 #include <random>
 #include"system-system.h"
 #include "core-Player.h"
-
+#include"system-view.h"
 PropManager::PropManager() {
 	LoadPropImages();
 }
 void PropManager::LoadPropImages() {
-	prop_images.reserve(11);			//加载道具图片
-	loadimage(&prop_images[0], ""); //道具0
-	loadimage(&prop_images[1], ""); //道具1
-	loadimage(&prop_images[2], ""); //道具2
-	loadimage(&prop_images[3], ""); //道具3
-	loadimage(&prop_images[4], ""); //道具4
-	loadimage(&prop_images[5], ""); //道具5
-	loadimage(&prop_images[6], ""); //道具6
-	loadimage(&prop_images[7], ""); //道具7
-	loadimage(&prop_images[8], ""); //道具8
-	loadimage(&prop_images[9], ""); //道具9
-	loadimage(&prop_images[10], ""); //道具10
+	prop_images.reserve(11);			//鍔犺浇閬撳叿鍥剧墖
+	loadimage(&prop_images[0], "image\\prop\\0.png",props[0]->rad, props[0]->rad); //閬撳叿0
+	loadimage(&prop_images[1], "image\\prop\\1.png", props[0]->rad, props[0]->rad); //閬撳叿1
+	loadimage(&prop_images[2], "image\\prop\\2.png", props[0]->rad, props[0]->rad); //閬撳叿2
+	loadimage(&prop_images[3], "image\\prop\\3.png", props[0]->rad, props[0]->rad); //閬撳叿3
+	loadimage(&prop_images[4], "image\\prop\\4.png", props[0]->rad, props[0]->rad); //閬撳叿4
+	loadimage(&prop_images[5], "image\\prop\\5.png", props[0]->rad, props[0]->rad); //閬撳叿5
+	loadimage(&prop_images[6], "image\\prop\\6.png", props[0]->rad, props[0]->rad); //閬撳叿6
+	loadimage(&prop_images[7], "image\\prop\\7.png", props[0]->rad, props[0]->rad); //閬撳叿7
+	loadimage(&prop_images[8], "image\\prop\\8.png", props[0]->rad, props[0]->rad); //閬撳叿8
+	loadimage(&prop_images[9], "image\\prop\\9.png", props[0]->rad, props[0]->rad); //閬撳叿9
+	loadimage(&prop_images[10], "image\\prop\\10.png", props[0]->rad, props[0]->rad); //閬撳叿10
 }
 void PropManager::Produce(Player*pl) {
 		prop* p = new prop;
@@ -119,7 +119,44 @@ void PropManager::Update(BulletManager& b, EnemyManager& e, Player* player) {
 
 }
 void PropManager::Render() {
-
+	for (prop* pp : props) {
+		switch (pp->type) {
+		case 0:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[0]);
+			break;
+		case 1:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[1]);
+			break;
+		case 2:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[2]);
+			break;
+		case 3:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[3]);
+			break;
+		case 4:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[4]);
+			break;
+		case 5:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[5]);
+			break;
+		case 6:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[6]);
+			break;
+		case 7:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[7]);
+			break;
+		case 8:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[8]);
+			break;
+		case 9:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[9]);
+			break;
+		case 10:
+			drawAlpha((int)pp->NowCoord.first - pp->rad / 2, (int)pp->NowCoord.second - pp->rad / 2, &prop_images[10]);
+			break;
+		
+		}
+	}
 }
 void PropManager::GC() {
 	//easyx
