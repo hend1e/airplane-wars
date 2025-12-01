@@ -4,24 +4,25 @@
 #include "Behavior-EnemyBehavior.h"
 #include "core-Enemy.h"
 #include"system-engine.h"
+#include"system-view.h"
 EnemyManager::EnemyManager() {
 	LoadEnemyImages();
 }
 void EnemyManager::LoadEnemyImages() {
-	enemy_images.resize(3);//3ÖÖµĞ»úÍ¼Æ¬
-	loadimage(&enemy_images[0], "");
-	loadimage(&enemy_images[1], "");
-	loadimage(&enemy_images[2], "");
+	enemy_images.resize(3);//3ç§æ•Œæœºå›¾ç‰‡
+	loadimage(&enemy_images[0], "image\\enemy\\common.jpg",enemies[0]->rad, enemies[0]->rad);
+	loadimage(&enemy_images[1], "image\\enemy\\elite.jpg", enemies[1]->rad, enemies[1]->rad);
+	loadimage(&enemy_images[2], "image\\enemy\\boss.jpg", enemies[2]->rad, enemies[2]->rad);
 }
 static bool IsProduce() {
 	auto Lerp = [](double a, double b, double t) {
 		return a + (b - a) * t;
 		};
-	double min_prob = 0; // ×îĞ¡Éú³É¸ÅÂÊ
-	double max_prob = 0.05; // ×î´óÉú³É¸ÅÂÊ
+	double min_prob = 0; // æœ€å°ç”Ÿæˆæ¦‚ç‡
+	double max_prob = 0.05; // æœ€å¤§ç”Ÿæˆæ¦‚ç‡
 	double current_prob = Lerp(min_prob, max_prob, AllGame::instance().coef);
 
-	// Éú³ÉËæ»úÊı²¢ÅĞ¶ÏÊÇ·ñÉú³ÉµĞ»ú
+	// ç”Ÿæˆéšæœºæ•°å¹¶åˆ¤æ–­æ˜¯å¦ç”Ÿæˆæ•Œæœº
 	double rand_val = RandomDouble(0, 1);
 	return rand_val <= current_prob;
 }
@@ -51,6 +52,22 @@ void EnemyManager::Update(Player*p) {
 	}
 }
 void EnemyManager::Render() {
+	for (auto& ee : enemies) {
+		switch (ee->type) {
+		case 0:
+			
+			drawAlpha((int)ee->coord.first - ee->rad / 2, (int)ee->coord.second - ee->rad / 2, &enemy_images[0]);
+			break;
+		case 1:
+		
+			drawAlpha((int)ee->coord.first - ee->rad / 2, (int)ee->coord.second - ee->rad / 2, &enemy_images[1]);
+			break;
+		case 2:
+			
+			drawAlpha((int)ee->coord.first - ee->rad / 2, (int)ee->coord.second - ee->rad / 2, &enemy_images[2]);
+			break;
+		}
+	}
 
 }
 void EnemyManager::GC() {
